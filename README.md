@@ -21,7 +21,7 @@ npm start
 Frontend runs on: http://localhost:3000
 
 ## 💻 How to use
-1. Open the frontend link (http://localhost:3000) in multiple browser tabs to test real-time collaboration. You can also do this step in two different browsers and check changes simultaneously
+1. Open the frontend link (http://localhost:3000) in multiple browser tabs to test real-time collaboration. You can also do this step in two different browsers and check changes simultaneously. Use a JavaScript supported browser.
 2. Edit the markdown in the editor, changes reflect in all connected clients instantly.
 3. The markdown preview updates live as you type.
 
