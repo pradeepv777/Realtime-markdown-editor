@@ -1,13 +1,13 @@
 # Real-Time Collaborative Markdown Editor
 
-## ?? Features
+## Features
 - Real-time collaboration with Socket.IO
 - Conflict-free editing with Y.js (planned)
 - Live Markdown preview
 - MongoDB for persistence
 - Clean React + Tailwind CSS UI
 
-## ?? Setup
+## Setup
 
 ### Backend
 ```bash
