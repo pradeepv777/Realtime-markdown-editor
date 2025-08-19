@@ -1,0 +1,22 @@
+realtime-md/         
+├── backend/
+│   ├── models/
+│   │   └── Document.js
+│   ├── server.js
+│   ├── package.json
+│   └── package-lock.json
+│
+├── frontend/
+│   ├── public/
+│   │   └── index.html
+│   ├── src/
+│   │   ├── App.js
+│   │   ├── Editor.js
+│   │   ├── Highlight.js  # For Syntax highlighting
+│   │   ├── index.css
+│   │   └── index.js
+│   ├── tailwind.config.js
+│   ├── package.json
+│   └── package-lock.json
+│
+└── README.md
