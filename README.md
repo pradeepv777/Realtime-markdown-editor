@@ -17,8 +17,8 @@ Backend runs on: http://localhost:5000
 ###  Run Frontend
 cd frontend
 npm install
-npm start
 npm install react-syntax-highlighter
+npm start
 Frontend runs on: http://localhost:3000
 
 ## 💻 How to use
@@ -35,6 +35,3 @@ Frontend runs on: http://localhost:3000
 ## 🔗 Links
 - Frontend: http://localhost:3000
 - Backend: http://localhost:5000
-
-
-
