@@ -9,17 +9,23 @@
 ## 🛠 Setup
 
 ### Run Backend
+```bash
 cd backend
 npm install
 node server.js
+```
 Backend runs on: http://localhost:5000
 
+
 ###  Run Frontend
+```
 cd frontend
 npm install
 npm install react-syntax-highlighter
 npm start
+```
 Frontend runs on: http://localhost:3000
+
 
 ## 💻 How to use
 1. Open the frontend link (http://localhost:3000) in multiple browser tabs to test real-time collaboration. You can also do this step in two different browsers and check changes simultaneously
