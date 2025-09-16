@@ -1,4 +1,4 @@
-realtime-md/         
+realtime-markdown-editor/
 ├── backend/
 │   ├── models/
 │   │   └── Document.js
@@ -15,8 +15,9 @@ realtime-md/
 │   │   ├── Highlight.js  # For Syntax highlighting
 │   │   ├── index.css
 │   │   └── index.js
-│   ├── tailwind.config.js
+│   ├── build/               
 │   ├── package.json
 │   └── package-lock.json
 │
-└── README.md
+├── README.md
+└── FileStructure.txt

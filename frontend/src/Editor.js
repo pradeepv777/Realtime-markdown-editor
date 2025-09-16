@@ -55,35 +55,20 @@ function Editor() {
     });
   };
 
+  const rootClassName = `editor${darkMode ? " editor--dark" : ""}`;
+  const toggleClassName = `toggle${darkMode ? " toggle--dark" : ""}`;
+  const inputClassName = `editor__input${darkMode ? " editor__input--dark" : ""}`;
+  const previewClassName = `editor__preview${darkMode ? " editor__preview--dark" : ""}`;
+
   return (
-    <div className={`grid grid-cols-2 gap-4 ${darkMode ? "bg-gray-900" : "bg-gray-100"} min-h-screen p-4`}>
-      {/* Toggle Button */}
-      <button
-        onClick={() => setDarkMode(!darkMode)}
-        className={`col-span-2 mb-2 p-2 rounded ${
-          darkMode ? "bg-gray-700 text-white" : "bg-gray-300 text-black"
-        }`}
-      >
+    <div className={rootClassName}>
+      <button onClick={() => setDarkMode(!darkMode)} className={toggleClassName}>
         Switch to {darkMode ? "Light" : "Dark"} Mode
       </button>
 
-      {/* Textarea */}
-      <textarea
-        value={text}
-        onChange={handleChange}
-        className={`w-full h-[70vh] p-3 border rounded-lg focus:outline-none ${
-          darkMode ? "bg-gray-800 text-white border-gray-700" : "bg-white text-black border-gray-300"
-        }`}
-      />
+      <textarea value={text} onChange={handleChange} className={inputClassName} />
 
-      {/* Markdown Preview */}
-      <div
-        className={`prose p-3 border rounded-lg overflow-auto ${
-          darkMode ? "prose-invert bg-gray-800 text-white border-gray-700" : "bg-gray-50 text-black border-gray-300"
-        }`}
-      >
-        {renderMarkdownWithHighlight()}
-      </div>
+      <div className={previewClassName}>{renderMarkdownWithHighlight()}</div>
     </div>
   );
 }

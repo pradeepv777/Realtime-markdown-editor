@@ -29,4 +29,4 @@ io.on("connection", socket => {
   });
 });
 
-server.listen(5000, () => console.log("Server running on 5000"));
+server.listen(5000, () => console.log("Server is running on 5000"));

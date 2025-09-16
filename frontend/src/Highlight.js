@@ -1,7 +1,6 @@
-// Highlight.js
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism'; // light theme
+import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism'; 
 
 const Highlight = ({ language, value, isDarkMode }) => {
   return (
