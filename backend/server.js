@@ -2,10 +2,14 @@ import express from "express";
 import http from "http";
 import mongoose from "mongoose";
 import { Server } from "socket.io";
+import path from "path";
 import Document from "./models/Document.js";
 
 const app = express();
 const server = http.createServer(app);
+
+// Serve static files from public directory
+app.use(express.static(path.join(path.resolve(), '..', 'public')));
 const io = new Server(server, { cors: { origin: "*" } });
 
 mongoose.connect("mongodb://127.0.0.1:27017/realtime-md");

@@ -6,18 +6,10 @@ realtime-markdown-editor/
 │   ├── package.json
 │   └── package-lock.json
 │
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   ├── src/
-│   │   ├── App.js
-│   │   ├── Editor.js
-│   │   ├── Highlight.js  # For Syntax highlighting
-│   │   ├── index.css
-│   │   └── index.js
-│   ├── build/               
-│   ├── package.json
-│   └── package-lock.json
+├── public/
+│   ├── index.html
+│   ├── style.css
+│   └── editor.js
 │
 ├── README.md
 └── FileStructure.txt

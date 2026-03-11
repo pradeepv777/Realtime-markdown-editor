@@ -6,13 +6,14 @@ Project: Real-Time Collaborative Markdown Editor
 - The document content is persisted in MongoDB so it survives server restarts and user reconnects.
 
 2) Build
-- Frontend (React):
+- Frontend (Vanilla JavaScript):
   - Renders the UI with a textarea for Markdown input and a live preview.
   - Connects to the backend via Socket.IO client.
-  - Uses `marked` to convert Markdown to HTML and `react-syntax-highlighter` (Prism themes) to render fenced code blocks.
+  - Uses `marked` to convert Markdown to HTML.
 - Backend (Node.js + Express + Socket.IO):
   - Manages WebSocket connections and room membership per document ID.
   - Loads/saves document content to MongoDB via Mongoose.
+  - Serves static HTML/CSS/JS files.
 - Database (MongoDB):
   - Stores documents (`_id` is the document identifier, `content` is the Markdown string).
 
@@ -29,11 +30,9 @@ Project: Real-Time Collaborative Markdown Editor
 4) Important files
 - backend/server.js: Express+HTTP server, Socket.IO setup, MongoDB connection, realtime events, and persistence.
 - backend/models/Document.js: Mongoose schema/model for documents.
-- frontend/src/index.js: React entry point.
-- frontend/src/App.js: Page shell and layout.
-- frontend/src/Editor.js: Core editor logic (Socket.IO events, state, Markdown rendering).
-- frontend/src/Highlight.js: Code block syntax highlighting (Prism theme).
-- frontend/public/index.html: App HTML shell.
+- public/index.html: Minimal HTML structure with textarea and preview.
+- public/editor.js: Core editor logic (Socket.IO events, Markdown rendering).
+- public/style.css: Minimal CSS for layout and styling.
 
 5) Realtime events (Socket.IO)
 - From client to server:
@@ -53,9 +52,9 @@ Project: Real-Time Collaborative Markdown Editor
 
 7) UI behavior
 - Two-column layout:
-  - Left: editable `<textarea>` bound to state.
-  - Right: Markdown preview using `marked`; fenced code blocks rendered with `Highlight`.
-- Dark mode toggle switches the theme for both the editor and preview (including syntax highlighting theme selection).
+  - Left: editable `<textarea>`.
+  - Right: Markdown preview using `marked`.
+- Minimal styling with essential functionality only.
 
 8) How to run (development)
 - Prerequisites:
@@ -64,46 +63,37 @@ Project: Real-Time Collaborative Markdown Editor
 - Backend:
   - In a terminal: `cd backend`
   - Install deps: `npm install`
-  - Start: `node server.js` (listens on http://localhost:5000)
+  - Start: `node server.js` (serves at http://localhost:5000)
 - Frontend:
-  - New terminal: `cd frontend`
-  - Install deps: `npm install`
-  - Start: `npm start` (opens http://localhost:3000)
+  - Static files served by Express, no separate build step needed.
 
-9) Build and deploy (frontend)
-- Development uses Create React App dev server.
-- Production build:
-  - `cd frontend && npm run build`
-  - Outputs static assets under `frontend/build/` ready to deploy to any static host.
-
-10) Error handling and caveats
+9) Error handling and caveats
 - This simple implementation broadcasts entire text content on change. For large documents or high-frequency edits, consider operational transforms (OT) or CRDTs to reduce conflicts and bandwidth.
 - No authentication/authorization is implemented; any client can connect and edit the `default-doc`.
 - CORS is configured to `*` in development; restrict in production.
 
-11) Security considerations (production hardening)
+10) Security considerations (production hardening)
 - Add authentication and per-document access control.
 - Validate and sanitize inputs; ensure Markdown output is safe (e.g., use `marked` with sanitizer or DOMPurify if needed).
 - Restrict CORS origins and use HTTPS.
 - Use environment variables for MongoDB connection strings and secrets.
 
-12) Extensibility ideas
+11) Extensibility ideas
 - Multiple documents and a document list UI (create, open, rename, delete).
 - Shareable links with unique document IDs.
 - Presence indicators (who is online, cursors, selection ranges) via Socket.IO.
 - Version history and diff/restore.
-- Export options: Markdown/HTML/PDF (client-side via html2canvas+jsPDF or server-side headless rendering).
+- Export options: Markdown/HTML/PDF.
 - Collaborative conflict resolution using OT or CRDT (e.g., Y.js).
 
-13) Tech stack summary
-- Frontend: React, marked, react-syntax-highlighter (Prism), CSS.
+12) Tech stack summary
+- Frontend: Vanilla JavaScript, marked, CSS.
 - Backend: Node.js, Express, Socket.IO, Mongoose.
 - Database: MongoDB.
 
-14) Quick glossary
+13) Quick glossary
 - Socket.IO: realtime bidirectional communication between browser and server over WebSockets/fallbacks.
 - Room: a logical channel in Socket.IO used here per document ID for broadcasting changes.
 - Markdown: lightweight markup language converted to HTML with `marked`.
-- Prism: syntax highlighting engine used by `react-syntax-highlighter` themes.
 
 
